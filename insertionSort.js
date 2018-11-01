@@ -9,12 +9,20 @@
   // Repeat this process until current item is greater than or equal to the current sorted item. Now current item is part of the sorted section.
 // Repeat until the unsorted section is empty.
 
-function swap(array, i, j){
-  let temp = array[i]
-  array[i] = array[j]
-  array[j] = temp
+// array to sort
+let array = [10,3,8,4,6,7,2,5,9,1]
+
+function insertionSort(array) {
+  for(let i = 0; i < array.length; i++) {
+    let currItem = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j] > currItem) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = currItem;
+  }
+  return array;
 }
 
-function insertionSort(array){
-  
-}
+insertionSort(array); // => [1,2,3,4,5,6,7,8,9,10 ]
